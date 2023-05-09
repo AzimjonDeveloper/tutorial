@@ -1,7 +1,6 @@
-import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:flutter/material.dart';
-import '../app_images.dart';
-import '../app_styles.dart';
+import '../resourses/app_images.dart';
+import '../resourses/app_styles.dart';
 
 class RegistrationHeadline extends StatelessWidget {
   String titleText;

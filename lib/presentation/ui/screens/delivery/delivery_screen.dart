@@ -1,7 +1,7 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
 import 'package:ecommerse/presentation/ui/screens/add_address_screen/add_address_screen.dart';
 import 'package:ecommerse/presentation/ui/screens/checkout_screen/checkout_screen.dart';
 import 'package:ecommerse/presentation/ui/screens/delivery/delivery_address.dart';

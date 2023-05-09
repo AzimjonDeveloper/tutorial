@@ -3,7 +3,7 @@ import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/screens/cart/cart_screen.dart';
 import 'package:ecommerse/presentation/ui/screens/home/home_screen.dart';
 import 'package:ecommerse/presentation/ui/screens/profile_screen/profile_screen.dart';
-import 'package:ecommerse/presentation/ui/screens/main/wishlist_screen/wishlist_screen.dart';
+import 'package:ecommerse/presentation/ui/screens/wishlist_screen/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -16,9 +16,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage>
     with SingleTickerProviderStateMixin {
-  late TabController tabController;
-  int currentIndex = 0;
-
   @override
   void initState() {
     super.initState();
@@ -28,6 +25,9 @@ class _MainPageState extends State<MainPage>
       initialIndex: currentIndex,
     );
   }
+
+  late TabController tabController;
+  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {

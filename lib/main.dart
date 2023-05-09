@@ -1,6 +1,4 @@
-import 'package:ecommerse/presentation/ui/screens/delivery/delivery_address.dart';
-import 'package:ecommerse/presentation/ui/screens/delivery/delivery_screen.dart';
-import 'package:ecommerse/presentation/ui/screens/payment_methods/payment_method.dart';
+import 'package:ecommerse/presentation/ui/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce',
-      home: DeliveryInformationScreen(),
+      home: MainPage(),
     );
   }
 }

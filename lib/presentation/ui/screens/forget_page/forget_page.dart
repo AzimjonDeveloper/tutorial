@@ -1,15 +1,17 @@
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_regbutton.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/brand_collection.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_regbutton.dart';
+import 'package:ecommerse/presentation/ui/widgets/brand_collection.dart';
 import 'package:ecommerse/presentation/ui/screens/reset_page/reset_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../resourses/app_colors.dart';
 import '../../resourses/app_styles.dart';
-import '../../resourses/customwidgets/app_custompadding.dart';
-import '../../resourses/customwidgets/customtextfield.dart';
+import '../../widgets/app_custompadding.dart';
+import '../../widgets/customtextfield.dart';
 
 class ForgetPage extends StatelessWidget {
   TextEditingController controllerEmailReset = TextEditingController();
+
+  ForgetPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +35,9 @@ class ForgetPage extends StatelessWidget {
                       style: Styles.getOnBoardingSubTitleStyle()
                           .copyWith(color: AppColors.secondaryBlack),
                     ),
+                    const SizedBox(
+                      height: 40,
+                    ),
                     CustomTextfield(
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.done,
@@ -41,9 +46,6 @@ class ForgetPage extends StatelessWidget {
                       obscureText: false,
                     ),
                   ],
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.034,
                 ),
                 RegistrationButton(
                   onPressed: () {

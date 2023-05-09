@@ -2,10 +2,12 @@ import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_images.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/screens/orders_screen/orders_screen.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/screens/delivery/delivery_screen.dart';
 import 'package:ecommerse/presentation/ui/screens/payment_methods/payment_method.dart';
 import 'package:ecommerse/presentation/ui/screens/profile_screen/profile_data.dart';
-import 'package:ecommerse/presentation/ui/screens/profile_screen/profile_edit_screen.dart';
+import 'package:ecommerse/presentation/ui/screens/profile_edit_screen/profile_edit_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,7 +19,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  bool value = false;
+  bool value1 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -133,6 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SwitcherRow(
+            value: value1,
             text: 'Notification',
             onSwitched: () {},
           ),
@@ -143,7 +146,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _getSpace(),
           ArrowRow(
             text: 'My Orders',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => const OrdersScreen()),
+              );
+            },
           ),
           Divider(
             thickness: 1,
@@ -167,6 +174,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             color: AppColors.colorDEDEDE,
           ),
           SwitcherRow(
+            value: value1,
             text: 'Dark Mode',
             onSwitched: () {},
           ),
@@ -177,19 +185,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
           _getSpace(),
           ArrowRow(
             text: 'Shipping Addresses',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => DeliveryInformationScreen(),
+                ),
+              );
+            },
           ),
           _getDivider(),
           const SizedBox(height: 30),
           TextButton(
-              onPressed: () {},
-              child: Text(
-                'Logout',
-                style: Styles.getLabelStyle().copyWith(
-                  fontSize: 18,
-                  color: AppColors.primaryColor,
-                ),
-              ))
+            onPressed: () {},
+            child: Text(
+              'Logout',
+              style: Styles.getLabelStyle().copyWith(
+                fontSize: 18,
+                color: AppColors.primaryColor,
+              ),
+            ),
+          ),
         ],
       );
   _getDivider() => Divider(
@@ -198,7 +213,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       );
   _getSpace() => const SizedBox(height: 15);
 
-  Widget SwitcherRow({required String text, required Function onSwitched}) {
+  Widget SwitcherRow({
+    required String text,
+    required Function onSwitched,
+    required bool value,
+  }) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -210,10 +229,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
         Switch(
           activeColor: AppColors.primaryColor,
-          value: value,
+          value: value1,
           onChanged: (value) {
             setState(() {
-              this.value = value;
+              value1 = value;
             });
           },
         ),
@@ -222,23 +241,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Widget ArrowRow({required String text, required onPressed}) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          text,
-          style: Styles.getLabelStyle().copyWith(
-            fontSize: 18,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text,
+            style: Styles.getLabelStyle().copyWith(
+              fontSize: 18,
+            ),
           ),
-        ),
-        GestureDetector(
-          onTap: onPressed,
-          child: const Icon(
+          const Icon(
             Icons.arrow_forward,
             size: 28,
           ),
-        )
-      ],
+        ],
+      ),
     );
   }
 }

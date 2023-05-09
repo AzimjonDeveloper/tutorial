@@ -1,7 +1,7 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/screens/main/wishlist_screen/wishlist_screen.dart';
+import 'package:ecommerse/presentation/ui/screens/wishlist_screen/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,6 +12,7 @@ class WAppBarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       bottom: PreferredSize(
         preferredSize: const Size(double.infinity, 1),
         child: Divider(

@@ -1,14 +1,14 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_images.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/brand_collection.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/brand_collection.dart';
 import 'package:ecommerse/presentation/ui/screens/forget_page/forget_page.dart';
 import 'package:ecommerse/presentation/ui/screens/registration_page/registration_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_fonts.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/customtextfield.dart';
-import '../../resourses/customwidgets/app_regbutton.dart';
+import 'package:ecommerse/presentation/ui/widgets/customtextfield.dart';
+import '../../widgets/app_regbutton.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

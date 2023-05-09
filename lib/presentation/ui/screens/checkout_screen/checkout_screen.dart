@@ -1,7 +1,8 @@
 import 'package:ecommerse/presentation/ui/resourses/app_images.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/customtextfield.dart';
+import 'package:ecommerse/presentation/ui/screens/loading_screen/loading_screen.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/customtextfield.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_appbar.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_bottomview.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +78,13 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
         ),
       ),
       bottomNavigationBar: WViewBottomNavigationBar(
-        onButtonPressed: () {},
+        onButtonPressed: () {
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => LoadingScreen(index: 1),
+            ),
+          );
+        },
         buttonTitle: 'Pay Now',
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/customtextfield.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/customtextfield.dart';
 import 'package:ecommerse/presentation/ui/screens/delivery/delivery_data.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_appbar.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_bottomview.dart';

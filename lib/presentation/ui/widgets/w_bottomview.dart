@@ -1,4 +1,4 @@
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_regbutton.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_regbutton.dart';
 import 'package:flutter/material.dart';
 
 class WViewBottomNavigationBar extends StatelessWidget {

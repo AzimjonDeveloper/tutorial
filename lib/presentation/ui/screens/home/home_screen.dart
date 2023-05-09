@@ -2,7 +2,7 @@ import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_fonts.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_images.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
 import 'package:ecommerse/presentation/ui/screens/product/product_screen.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_brand_name.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_category.dart';
@@ -123,6 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _getAppBar() => AppBar(
+        toolbarHeight: 100,
         titleSpacing: 0,
         elevation: 0,
         backgroundColor: Colors.white,
@@ -130,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 16.0,
-            vertical: 10,
+            vertical: 20,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

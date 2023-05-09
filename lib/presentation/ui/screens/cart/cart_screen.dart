@@ -1,7 +1,7 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
 import 'package:ecommerse/presentation/ui/screens/home/products_data.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_appbar.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_button.dart';

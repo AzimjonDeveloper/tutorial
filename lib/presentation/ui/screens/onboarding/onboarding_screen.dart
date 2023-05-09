@@ -1,7 +1,6 @@
 import 'package:ecommerse/presentation/ui/screens/loginpage/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
-import 'package:ecommerse/presentation/ui/resourses/app_images.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'onboarding_data.dart';
 
@@ -15,84 +14,77 @@ class OnBoardingScreen extends StatefulWidget {
 class _OnBoardingScreenState extends State<OnBoardingScreen> {
   PageController controller = PageController();
   int pageIndex = 0;
-  double width = 0;
-  double height = 0;
 
-  Widget _getspace() => SizedBox(
-        height: height * 0.094,
+  Widget _getspace() => const SizedBox(
+        height: 90,
       );
   @override
   Widget build(BuildContext context) {
-    width = MediaQuery.of(context).size.width;
-    height = MediaQuery.of(context).size.height;
-
-    return SingleChildScrollView(
-      child: Container(
-        color: Colors.white,
-        child: Scaffold(
-          body: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: width * 0.05,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SafeArea(child: SizedBox()),
-                GestureDetector(
-                  onTap: () {
-                    if (pageIndex != onboardingdata.length - 1) {
-                      setState(() {
-                        pageIndex++;
-                        controller.animateToPage(
-                          pageIndex,
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.linear,
-                        );
-                      });
-                    } else {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return LoginPage();
-                          },
-                        ),
+    return Container(
+      color: Colors.white,
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 25,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SafeArea(child: SizedBox()),
+              GestureDetector(
+                onTap: () {
+                  if (pageIndex != onboardingdata.length - 1) {
+                    setState(() {
+                      pageIndex++;
+                      controller.animateToPage(
+                        pageIndex,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.linear,
                       );
-                    }
+                    });
+                  } else {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return LoginPage();
+                        },
+                      ),
+                    );
+                  }
+                },
+                child: Container(
+                  margin: const EdgeInsets.only(top: 44),
+                  alignment: Alignment.centerRight,
+                  child: Text(
+                    'Next',
+                    style: Styles.getTextActionStyle(),
+                  ),
+                ),
+              ),
+              _getspace(),
+              Expanded(
+                child: PageView(
+                  controller: controller,
+                  onPageChanged: (int index) {
+                    setState(() {
+                      pageIndex = index;
+                    });
                   },
-                  child: Container(
-                    margin: EdgeInsets.only(top: height * 0.05),
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      'Next',
-                      style: Styles.getTextActionStyle(),
-                    ),
+                  physics: const BouncingScrollPhysics(),
+                  children: List.generate(
+                    onboardingdata.length,
+                    (index) => _getScreen(onboardingdata[index]),
                   ),
                 ),
-                _getspace(),
-                Expanded(
-                  child: PageView(
-                    controller: controller,
-                    onPageChanged: (int index) {
-                      setState(() {
-                        pageIndex = index;
-                      });
-                    },
-                    physics: const BouncingScrollPhysics(),
-                    children: List.generate(
-                      onboardingdata.length,
-                      (index) => _getScreen(onboardingdata[index]),
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: _getDots(onboardingdata.length, pageIndex),
-                ),
-                const SizedBox(
-                  height: 60,
-                )
-              ],
-            ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: _getDots(onboardingdata.length, pageIndex),
+              ),
+              const SizedBox(
+                height: 60,
+              )
+            ],
           ),
         ),
       ),
@@ -104,7 +96,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
       children: [
         Image.asset(
           data.imageurl,
-          width: width * 0.75,
+          width: 300,
         ),
         _getspace(),
         Text(

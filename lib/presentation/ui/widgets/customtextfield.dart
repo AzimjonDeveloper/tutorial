@@ -1,6 +1,6 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:flutter/material.dart';
-import '../app_fonts.dart';
+import '../resourses/app_fonts.dart';
 
 class CustomTextfield extends StatelessWidget {
   TextEditingController controller;

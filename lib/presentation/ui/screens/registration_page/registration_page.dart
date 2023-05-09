@@ -1,12 +1,12 @@
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_custompadding.dart';
-import 'package:ecommerse/presentation/ui/resourses/customwidgets/app_regbutton.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_regbutton.dart';
 import 'package:ecommerse/presentation/ui/screens/loginpage/login_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../resourses/app_colors.dart';
 import '../../resourses/app_styles.dart';
-import '../../resourses/customwidgets/brand_collection.dart';
-import '../../resourses/customwidgets/customtextfield.dart';
+import '../../widgets/brand_collection.dart';
+import '../../widgets/customtextfield.dart';
 
 class RegistrationPage extends StatelessWidget {
   RegistrationPage({super.key});
