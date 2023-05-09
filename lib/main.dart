@@ -1,4 +1,4 @@
-import 'package:ecommerse/presentation/ui/screens/main/main_screen.dart';
+import 'package:ecommerse/presentation/ui/screens/splash/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Ecommerce',
-      home: MainPage(),
+      home: SplashScreen(),
     );
   }
 }
