@@ -1,8 +1,10 @@
 import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
+import 'package:ecommerse/presentation/ui/screens/delivery/delivery_screen.dart';
 import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
 import 'package:ecommerse/presentation/ui/screens/home/products_data.dart';
+import 'package:ecommerse/presentation/ui/widgets/app_regbutton.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_appbar.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_button.dart';
 import 'package:ecommerse/presentation/ui/widgets/w_review_stars.dart';
@@ -25,26 +27,67 @@ class _CartScreenState extends State<CartScreen> {
       appBar: const PreferredSize(
         preferredSize: Size(double.infinity, 96),
         child: WAppBarView(
-          title: 'Card',
+          title: 'Shopping Cart',
         ),
       ),
-      body: AppCustomPadding(
-        child: _getGridView(),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: AppCustomPadding(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ..._getListProduct(),
+              const SizedBox(height: 50),
+              _getPromocodes(),
+              const SizedBox(height: 50),
+              _getTotal(),
+              const SizedBox(height: 60),
+              RegistrationButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const DeliveryInformationScreen(),
+                    ),
+                  );
+                },
+                text: 'Checkout',
+              ),
+              _getSpace(),
+            ],
+          ),
+        ),
       ),
     );
   }
 
-  _getGridView() => GridView(
-        physics: const BouncingScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisSpacing: 30,
-          crossAxisCount: 1,
-          mainAxisExtent: 180,
+  _getPromocodes() => InkWell(
+        onTap: () {},
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 25),
+          decoration:
+              BoxDecoration(border: Border.all(color: AppColors.colorE5E5E5)),
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Promocodes',
+                style: Styles.getLabelStyle(),
+              ),
+              Text(
+                'Apply',
+                style: Styles.getTextActionStyle().copyWith(fontSize: 16),
+              ),
+            ],
+          ),
         ),
-        children: List.generate(
-          Product.itemsdata.length,
-          (index) {
-            return Row(
+      );
+  _getListProduct() => List.generate(
+        Product.itemsdata.length,
+        (index) {
+          return Container(
+            margin: const EdgeInsets.symmetric(vertical: 15),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Stack(
@@ -67,10 +110,11 @@ class _CartScreenState extends State<CartScreen> {
                               context: context,
                               builder: (_) => AlertDialog(
                                 title: Center(
-                                    child: SvgPicture.asset(
-                                  AppIcons.warningIcon,
-                                  width: 62,
-                                )),
+                                  child: SvgPicture.asset(
+                                    AppIcons.warningIcon,
+                                    width: 62,
+                                  ),
+                                ),
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -147,9 +191,9 @@ class _CartScreenState extends State<CartScreen> {
                   ),
                 ),
               ],
-            );
-          },
-        ),
+            ),
+          );
+        },
       );
   _getCounter() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -205,4 +249,76 @@ class _CartScreenState extends State<CartScreen> {
           ),
         ],
       );
+  _getTotal() => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Order Info',
+            style: Styles.getLabelStyle().copyWith(
+              fontSize: 20,
+            ),
+          ),
+          const SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Subtotal',
+                style: Styles.getLabelStyle().copyWith(
+                  color: AppColors.colorAAAAAAA,
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                '\$890',
+                style: Styles.getLabelStyle().copyWith(
+                  color: AppColors.colorAAAAAAA,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+          _getSpace(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Shipping Charge',
+                style: Styles.getLabelStyle().copyWith(
+                  color: AppColors.colorAAAAAAA,
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                '+ \$10',
+                style: Styles.getLabelStyle().copyWith(
+                  color: AppColors.colorAAAAAAA,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+          _getSpace(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Total',
+                style: Styles.getLabelStyle().copyWith(
+                  color: AppColors.colorAAAAAAA,
+                  fontSize: 18,
+                ),
+              ),
+              Text(
+                '\$900',
+                style: Styles.getLabelStyle().copyWith(
+                  color: AppColors.primaryColor,
+                  fontSize: 18,
+                ),
+              ),
+            ],
+          ),
+        ],
+      );
+  _getSpace() => const SizedBox(height: 20);
 }

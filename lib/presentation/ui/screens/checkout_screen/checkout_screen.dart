@@ -38,7 +38,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 child: Image.asset(AppImages.creditcard),
               ),
               const SizedBox(
-                height: 40,
+                height: 10,
               ),
               _getCardInfo(
                 title: 'Card Holder Name',

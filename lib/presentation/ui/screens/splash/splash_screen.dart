@@ -14,9 +14,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  double width = 0;
-  double height = 0;
-
   @override
   void initState() {
     super.initState();
@@ -47,9 +44,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 AppImages.logoSvg,
                 width: 140,
               ),
-              SizedBox(
-                height: 40,
-              ),
+              const SizedBox(height: 40),
               const WBrandName(),
             ],
           ),

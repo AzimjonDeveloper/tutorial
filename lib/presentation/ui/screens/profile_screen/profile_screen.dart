@@ -2,10 +2,10 @@ import 'package:ecommerse/presentation/ui/resourses/app_colors.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_icons.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_images.dart';
 import 'package:ecommerse/presentation/ui/resourses/app_styles.dart';
+import 'package:ecommerse/presentation/ui/screens/creditcard_screen/creditcard_screen.dart';
 import 'package:ecommerse/presentation/ui/screens/orders_screen/orders_screen.dart';
 import 'package:ecommerse/presentation/ui/widgets/app_custompadding.dart';
 import 'package:ecommerse/presentation/ui/screens/delivery/delivery_screen.dart';
-import 'package:ecommerse/presentation/ui/screens/payment_methods/payment_method.dart';
 import 'package:ecommerse/presentation/ui/screens/profile_screen/profile_data.dart';
 import 'package:ecommerse/presentation/ui/screens/profile_edit_screen/profile_edit_screen.dart';
 import 'package:flutter/material.dart';
@@ -163,7 +163,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) {
-                    return const PaymentScreen();
+                    return const CreditcardScreen();
                   },
                 ),
               );

@@ -27,4 +27,5 @@ abstract class AppImages {
   static String creditcard = '$path/card.png';
 
   static String changeTick = '$path/changeTick.png';
+  static String emptyCard = '$path/cardempty.png';
 }
