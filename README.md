@@ -1,4 +1,4 @@
-# ecommerse
+# ecommerce
 
 A new Flutter project.
 
